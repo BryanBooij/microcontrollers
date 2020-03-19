@@ -1,49 +1,31 @@
-//Authors: Andrew Johnson, Dakota Cowell
 // Include the required Wire library for I2C
 #include <Wire.h>
-
 int LED = 13;
-bool valueReceived;
-int isOn = 0; // Off = 0 On = 1
-
+int x = 0;
 void setup() {
-  //Set up serial output baud number
-  Serial.begin(9600);
   // Define the LED pin as Output
   pinMode (LED, OUTPUT);
   // Start the I2C Bus as Slave on address 9
   Wire.begin(9); 
   // Attach a function to trigger when something is received.
   Wire.onReceive(receiveEvent);
-  //Attach a function to trigger when something is requested
-  Wire.onRequest(requestEvent);
 }
-
-void receiveEvent(bool bytes) {
-  //Read one value from the I2C
-  valueReceived = Wire.read();
-  //Display the value received  
-  Serial.println(valueReceived);
-  //If the value received was true turn the led on, otherwise turn it off
-  if(valueReceived){
-    isOn = 1;
-  }
-  else{
-    isOn = 0;
-  }
+void receiveEvent(int bytes) {
+  x = Wire.read();    // read one character from the I2C
 }
-
-void requestEvent(){
-  //Tell the master whether the led is on or not
-  Wire.write(isOn);
-}
-
 void loop() {
-  //Turn on or off the led based on the master's input
-  if(isOn){
+  //If value received is 0 blink LED for 200 ms
+  if (x == 0) {
     digitalWrite(LED, HIGH);
-  }
-  else{
+    delay(200);
     digitalWrite(LED, LOW);
+    delay(200);
+  }
+  //If value received is 3 blink LED for 400 ms
+  if (x == 3) {
+    digitalWrite(LED, HIGH);
+    delay(400);
+    digitalWrite(LED, LOW);
+    delay(400);
   }
 }
