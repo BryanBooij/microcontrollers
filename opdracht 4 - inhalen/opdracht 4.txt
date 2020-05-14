@@ -1,0 +1,152 @@
+int tap1 = 0;
+int tap = 0;
+void setup(){
+	Serial.begin(9600);
+	pinMode(13,OUTPUT);
+	pinMode(12,OUTPUT);
+	pinMode(11,OUTPUT);
+	pinMode(10,OUTPUT);
+	pinMode(9,OUTPUT);
+	pinMode(8,OUTPUT);
+	pinMode(6,OUTPUT);
+	pinMode(4,INPUT);
+}
+void loop(){
+	blue1(); button(); green1();
+	button(); yellow1(); button();
+	red(); button(); yellow();
+	button(); green(); button();
+	blue(); button(); green3();
+	button(); yellow3(); button();
+	red2(); button(); yellow2();
+	button(); green2(); button();
+}
+void blue1(){
+	if(tap == 0){
+		digitalWrite(13,HIGH);
+		delay(100);
+		digitalWrite(13,LOW);
+		tap1 = tap1 + 1;
+	}}
+void button(){
+	tap = digitalRead(4);
+	Serial.print(tap);
+	if(tap == 1){
+		if(tap1 == 1){
+			digitalWrite(12,HIGH);
+			tone(2,100,20);
+			delay(1);
+			digitalWrite(12,LOW);
+		}
+		if(tap1 == 2){
+			digitalWrite(11,HIGH);
+			tone(2,100,20);
+			delay(1);
+			digitalWrite(11,LOW);
+		}
+		if(tap1 == 3){
+			digitalWrite(10,HIGH);
+			tone(2,500,20);
+			delay(1);
+			digitalWrite(10,LOW);
+		}
+		if(tap1 == 4){
+			digitalWrite(9,HIGH);
+			tone(2,100,20);
+			delay(1);
+			digitalWrite(9,LOW);
+		}
+		if(tap1 == 5){
+			digitalWrite(8,HIGH);
+			tone(2,100,20);
+			delay(1);
+			digitalWrite(8,LOW);
+		}
+		if(tap1 == 6){
+			digitalWrite(6,HIGH);
+			tone(2,100,20);
+			delay(1);
+			digitalWrite(6,LOW);
+		}
+		if(tap1 == 0){
+			digitalWrite(13,HIGH);
+			tone(2,100,20);
+			delay(1);
+			digitalWrite(13,LOW);
+		}}}
+void green1(){
+	if(tap == 0){
+		digitalWrite(12,HIGH);
+		delay(100);
+		digitalWrite(12,LOW);
+		tap1 = tap1 + 1;
+	}}
+void yellow1(){
+	if(tap == 0){
+		digitalWrite(11,HIGH);
+		delay(100);
+		digitalWrite(11,LOW );
+		tap1 = tap1 + 1;
+	}}
+void red(){
+	if(tap == 0){
+		digitalWrite(10,  HIGH);
+		delay(100);
+		digitalWrite(10,LOW);
+		tap1 = tap1 + 1;
+	}}
+void yellow(){
+	if(tap == 0){
+		digitalWrite(9,HIGH);
+		delay(100);
+		digitalWrite(9,LOW);
+		tap1 = tap1 + 1;
+	}}
+void green(){
+	if(tap == 0){
+		digitalWrite(8,HIGH);
+		delay(100);
+		digitalWrite(8,LOW);
+		tap1 = tap1 + 1;
+	}}
+void blue(){
+	if(tap == 0){
+		digitalWrite(6,HIGH);
+		delay(100);
+		digitalWrite(6,LOW);
+		tap1 = tap1 - 1;
+	}}
+void green3(){	if(tap == 0){
+		digitalWrite(8,HIGH);
+		delay(100);
+		digitalWrite(8,LOW);
+		tap1 = tap1 - 1;
+	}}
+void yellow3(){
+	if(tap == 0){
+		digitalWrite(9,HIGH);
+		delay(100);
+		digitalWrite(9,LOW);
+		tap1 = tap1 - 1;
+	}}
+void red2(){
+	if(tap == 0){
+		digitalWrite(10,HIGH);
+		delay(100);
+		digitalWrite(10,LOW);
+		tap1 = tap1 - 1;
+	}}
+void yellow2(){
+	if(tap == 0){
+		digitalWrite(11,HIGH);
+		delay(100);
+		digitalWrite(11,LOW);
+		tap1 = tap1 - 1;
+	}}
+void green2(){
+	if(tap == 0){
+		digitalWrite(12,HIGH);
+		delay(100);
+		digitalWrite(12,LOW);
+		tap1 = 0;
+	}}
