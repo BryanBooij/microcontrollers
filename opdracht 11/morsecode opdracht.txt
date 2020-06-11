@@ -1,14 +1,25 @@
 void setup() {
 	
-	const int buzzer = 3;
+	const int buzzer = 3; //int van de buzzer
 }
 
 void loop() 
 {
+/*       --COMMENTS--
+	tone(3,440,250);A
+	tone(3,247,125);B
+	tone(3,261,125);C
+	tone(3,294,125);D
+	tone(3,659,250);E
+	tone(3,349,250);F
+	tone(3,392,250);G
 	
+	voorbeelden van verschillende tones die ik ga gebruiken voor deze opdracht
 	
+	tone(3,415,125);Ab voorbeeld van een lagere versie van een tone
+	*/	
 	tone(3,294,125);//D
-	delay(125);
+	delay(125); //delay voor de tijd tussen de noten
 	tone(3,294,125);//D
 	delay(125);
 	tone(3,587,250);//D
